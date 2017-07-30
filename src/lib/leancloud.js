@@ -1,8 +1,8 @@
 //配置leancloud
 import AV from 'leancloud-storage'
 
-const appId = 'nNguzyNBNM07xuzlWRhUyYTl-gzGzoHsz'
-const appKey = '4cQ7JYsnLv8lBGSWfcA5uTFk'
+const appId = 'yCmQH5vYxGYb4j78452enFvk-gzGzoHsz'
+const appKey = 'e6WBkxOwynO03TPvIs6qNlU5'
 
 AV.init({
   appId,

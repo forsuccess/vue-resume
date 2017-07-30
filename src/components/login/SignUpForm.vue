@@ -82,7 +82,7 @@ export default {
       opacity: .45;
       color: #fff;
     }
-    margin: 0 5px;
+    margin: 0 auto;
     cursor: pointer;
     border: none;
     padding: 10px 20px;

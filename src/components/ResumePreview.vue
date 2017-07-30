@@ -1,75 +1,64 @@
 <template>
   <div id="resume-preview">
+
     <section class="section-left">
       <header class="profile">
-        <h2>{{resume.Profile.name}}</h2>
+      <div class="left">
+        <h1>{{resume.Profile.name}}</h1>
         <h3>求职意向:{{resume.Profile.intention}}</h3>
-        <p>
-          <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-tel"></use>
-          </svg>
-        </p>
-        <p>
+         <div class="phone">
+          <span>电话：</span>
+        <span>
           {{resume.Contacts.telephone}}
-        </p>
-        <p>
-          <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-email"></use>
-          </svg>
-        </p>
-        <p>{{resume.Contacts.email}}</p>
-        <ul class="personal">
-          <li>
-            <p>住址</p>
-            <p>{{resume.Profile.city}}</p>
-          </li>
-          <li>
-            <p>性别</p>
-            <p>{{resume.Profile.sex}}</p>
-          </li>
-          <li>
-            <p>年龄</p>
-            <p>{{resume.Profile.age}}</p>
-          </li>
-        </ul>
+        </span>
+        </div>
+
+          <div class="gender">
+            <span>性别:</span>
+            <span>{{resume.Profile.sex}}</span>
+         </div>
+
+
+         </div>
+         <div class="right">
+
+                <p class="github">
+                  <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                  </svg>
+                  <span>Github:
+                    <a :href="resume.Contacts.github" v-text="resume.Contacts.github"></a>
+                  </span>
+                </p>
+                <p class="blog">
+                          <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-blog"></use>
+                          </svg>
+                          <span>Blog:
+                            <a :href="resume.Contacts.blog" v-text="resume.Contacts.blog"></a>
+                          </span>
+                        </p>
+                        <p class="email">
+
+                                  <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-email"></use>
+                                  </svg>
+
+                                <span>{{resume.Contacts.email}}</span>
+                                </p>
+              </div>
+
       </header>
       <div class="edu">
         <h3>教育背景</h3>
-        <p>{{resume.Education.school}}</p>
-        <p>{{resume.Education.time}}</p>
+        <span>{{resume.Education.school}}:</span>
+        <span>{{resume.Education.time}}</span>
       </div>
-      <div class="hobbies">
-        <h3>兴趣爱好</h3>
-        <ul class="hobby-item">
-          <li v-for="(item,key) in resume.Hobbys">{{item.hobby}}</li>
-        </ul>
-      </div>
-      <div class="self-assessment">
-        <h3>自我评价</h3>
-        <p>
-          {{resume.Profile.assessment}}
-        </p>
-      </div>
-    </section>
-    <section class="section-right">
+
+
       <div class="blog">
-        <h3>Github&Blog</h3>
-        <p class="github">
-          <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-github"></use>
-          </svg>
-          <span>Github:
-            <a :href="resume.Contacts.github" v-text="resume.Contacts.github"></a>
-          </span>
-        </p>
-        <p class="blog">
-          <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-blog"></use>
-          </svg>
-          <span>Blog:
-            <a :href="resume.Contacts.blog" v-text="resume.Contacts.blog"></a>
-          </span>
-        </p>
+
+
       </div>
       <div class="work">
         <div class="title">
@@ -112,6 +101,18 @@
           </ul>
         </div>
       </div>
+       <div class="hobbies">
+              <h3>兴趣爱好</h3>
+              <ul class="hobby-item">
+                <li v-for="(item,key) in resume.Hobbys">{{item.hobby}}</li>
+              </ul>
+            </div>
+            <div class="self-assessment">
+              <h3>自我评价</h3>
+              <p>
+                {{resume.Profile.assessment}}
+              </p>
+            </div>
     </section>
   </div>
 </template>
@@ -131,6 +132,42 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+*{
+line-height:30px;
+font-size:20px;
+}
+header:after{
+content:'';
+display:block;
+clear:both;
+}
+h1{
+font-size:30px;
+}
+.email{
+margin-top:10px;
+}
+h3{
+margin-top:10px;
+color:blue;
+}
+.left{
+float:left;
+}
+.right{
+float:right;
+margin-right:30px;
+margin-top:30px;
+}
+span{
+text-decoration:none;
+}
+.github{
+margin:10px 0;
+}
+.phone{
+ margin:10px 0;
+}
 #resume-preview {
   width: 62%;
   background-color: #f5f6f7;
@@ -138,48 +175,12 @@ export default {
   overflow: auto;
   display: flex;
       background-color: #ECECEC;
-  >.section-left {
-    width: 35%;
 
-    color: #313131;
-    text-align: center;
-    line-height: 1.8;
-    height: auto;
-  }
-  >.section-right {
-    width: 65%;
-    color: #313131;
-    padding: 1rem;
-    line-height: 1.8;
-    padding-bottom: 10px;
-    >.blog {
-      padding-left: 80px;
-          background-color: #f5f6f7;
-      >h3 {
-        font-size: 2rem;
-      }
-      .github,
-      .blog {
-        >span {
-          margin-left: 5px;
-          >a {
-            text-decoration: none;
-            color: #313131;
-          }
-        }
-      }
-    }
-  }
+
 }
 
 .profile {
-  padding-top: 2rem;
-  >h2 {
-    font-size: 2.5rem;
-  }
-  >h3 {
-    font-size: 2rem;
-  }
+
 }
 
 .icon {
@@ -207,6 +208,9 @@ export default {
 }
 
 .edu {
+margin-top:20px;
+padding-top:10px;
+border-top:1px solid #ccc;
   padding-bottom: 15px;
   border-bottom: 1px solid #ccc;
   >h3 {
@@ -215,21 +219,7 @@ export default {
 }
 
 .hobbies {
-  margin-top: 15px;
-  >h3 {
-    font-size: 2rem;
-  }
-  .hobby-item {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    >li {
-      width: 50px;
-      margin: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-  }
+
 }
 .self-assessment{
   h3{
@@ -246,13 +236,18 @@ export default {
   padding: .5rem;
       background-color: #f5f6f7;
   .title {
-    border-bottom: 2px solid #ccc;
+
     >h3 {
       font-size: 2rem;
     }
   }
 }
-
+.project{
+border-top:1px solid #ccc;
+}
+.skill{
+border-top:1px solid #ccc;
+}
 .item-title {
   display: flex;
   justify-content: space-between;

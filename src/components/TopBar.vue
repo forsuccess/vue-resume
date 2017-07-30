@@ -40,7 +40,7 @@ export default {
 <style lang="scss" scoped>
 .top-bar {
   min-height: 65px;
-  background-color: #09161c;
+  background-color: gray;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -65,7 +65,7 @@ export default {
   }
   .primary {
     border: none;
-    background-color: #09161c;
+    background-color: gray;
     color: #fff;
     height: 65px;
     padding: 0 15px;
@@ -80,7 +80,7 @@ export default {
   }
   .minor {
     border: none;
-    background-color: #09161c;
+    background-color: gray;
     color: #fff;
     height: 65px;
     padding: 0 15px;

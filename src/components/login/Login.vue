@@ -56,6 +56,7 @@ export default {
   background-color: #fff;
   >h2 {
     color: #fff;
+    border-radius:10px;
     font-size: 24px;
     font-family: 'Microsofe YaHei';
     text-align: center;
