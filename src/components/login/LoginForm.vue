@@ -17,9 +17,9 @@
 </template>
 
 <script>
-import AV from 'lib/leancloud'
-import getErrorMessage from 'lib/getErrorMessage'
-import getAVUser from 'lib/getAVUser'
+import AV from '../../lib/leancloud'
+import getErrorMessage from '../../lib/getErrorMessage'
+import getAVUser from '../../lib/getAVUser'
 import store from '../../store/index'
 import {mapActions} from 'vuex'
 

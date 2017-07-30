@@ -46,6 +46,10 @@ export default {
       user.signUp().then((loginedUser) => {
         //同login此时应从leancloud获取数据
         //注册成功后路由跳转=>Main
+         this.$emit('success', {
+          username: loginedUser.attributes.username,
+       id: loginedUser.id
+           })
         this.$router.replace('/main')
       },
         (error) => {
